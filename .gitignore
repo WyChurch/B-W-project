@@ -1,0 +1,28 @@
+# Model files (downloaded automatically)
+models/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Output files
+colorized_*
+*_colorized.*
+
+# OS
+.DS_Store
+Thumbs.db
+
