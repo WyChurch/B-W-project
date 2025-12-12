@@ -1,0 +1,3 @@
+([('ImageColorizer',
+   '/Users/wychurch/School/Computer Vision/B-W-project/dist/ImageColorizer',
+   'EXECUTABLE')],)

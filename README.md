@@ -10,6 +10,8 @@ A Python program that converts black and white (grayscale) images to color using
 - 📁 Batch processing for multiple images
 - 🖼️ Supports common image formats (JPG, PNG, BMP, TIFF, WEBP)
 - ⚡ Fast processing with OpenCV DNN
+- 📊 Evaluation metrics (PSNR, SSIM, MSE)
+- 🖼️ Results visualization and comparison tools
 
 ## Quick Start
 
@@ -74,6 +76,7 @@ python colorize.py --batch ./old_photos/
 - Python 3.7+
 - OpenCV (opencv-python)
 - NumPy
+- scikit-image (for evaluation metrics)
 - Internet connection (for initial model download)
 - 2GB+ RAM recommended
 
@@ -93,6 +96,44 @@ The program automatically downloads these files on first run (stored in `models/
 - `colorization_deploy_v2.prototxt` - Model architecture
 - `colorization_release_v2.caffemodel` - Trained model weights (~167MB)
 - `pts_in_hull.npy` - Cluster centers for color prediction
+
+## Evaluation and Visualization
+
+### Evaluate Colorization Quality
+
+Use the `evaluate.py` script to compute quantitative metrics:
+
+```bash
+# Compare original and colorized images
+python evaluate.py original.jpg colorized.jpg
+
+# Compare with reference (ground truth) image
+python evaluate.py original.jpg colorized.jpg --reference reference.jpg
+
+# Batch evaluation
+python evaluate.py --batch input_dir/ output_dir/
+```
+
+Metrics computed:
+- **PSNR** (Peak Signal-to-Noise Ratio): Measures image quality in dB
+- **SSIM** (Structural Similarity Index): Measures structural similarity (0-1)
+- **MSE** (Mean Squared Error): Measures pixel-level differences
+- **Color Statistics**: Analyzes color distribution in LAB color space
+
+### Visualize Results
+
+Create side-by-side comparison images:
+
+```bash
+# Single comparison
+python visualize_results.py original.jpg colorized.jpg comparison.jpg
+
+# With labels
+python visualize_results.py original.jpg colorized.jpg comparison.jpg --labels "Original" "Colorized"
+
+# Batch grid comparison
+python visualize_results.py --batch input_dir/ output_dir/ grid.jpg --cols 2
+```
 
 ## Notes
 

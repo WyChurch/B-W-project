@@ -1,5 +1,0 @@
-# Requirements for building the executable
-# Install with: pip install -r requirements-build.txt
-
-pyinstaller>=5.0.0
-
